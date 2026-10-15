@@ -1,0 +1,735 @@
+/* Importar fontes premium do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #141414;
+    --bg-card: #1c1c1e;
+    --bg-input: #252528;
+    
+    --color-gold: #d4af37;
+    --color-gold-light: #f3e5ab;
+    --color-gold-dark: #aa7c11;
+    --color-gold-gradient: linear-gradient(135deg, #e5c158 0%, #d4af37 50%, #aa7c11 100%);
+    
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+    --text-muted: #757575;
+    
+    --border-color: rgba(212, 175, 55, 0.15);
+    --border-color-light: rgba(255, 255, 255, 0.08);
+    
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.7);
+    --shadow-gold: 0 0 15px rgba(212, 175, 55, 0.2);
+    
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset de estilos básicos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Assinatura StockMallard */
+.signature-top {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    text-align: center;
+    padding: 15px 0 5px 0;
+    opacity: 0.7;
+    transition: var(--transition-smooth);
+}
+
+.signature-top:hover {
+    color: var(--color-gold);
+    opacity: 1;
+}
+
+/* Header principal */
+.main-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 20px 40px 20px;
+    background: linear-gradient(180deg, rgba(20, 20, 20, 0.8) 0%, rgba(10, 10, 10, 0) 100%);
+}
+
+.logo-wrapper {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    padding: 5px;
+    background: var(--color-gold-gradient);
+    box-shadow: var(--shadow-gold), 0 10px 30px rgba(0,0,0,0.6);
+}
+
+.logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    background-color: #000;
+}
+
+.shop-title {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    background: var(--color-gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.shop-tagline {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--text-secondary);
+    letter-spacing: 0.08em;
+    font-style: italic;
+    position: relative;
+}
+
+.shop-tagline::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 2px;
+    background: var(--color-gold-gradient);
+    margin: 15px auto 0 auto;
+    border-radius: 2px;
+}
+
+/* Container Principal */
+.main-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px 60px 20px;
+}
+
+/* Estilo padrão das seções */
+.section-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 30px 25px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-md);
+    backdrop-filter: blur(10px);
+    transition: var(--transition-smooth);
+}
+
+.section-card:hover {
+    border-color: rgba(212, 175, 55, 0.3);
+    box-shadow: var(--shadow-md), 0 0 20px rgba(212, 175, 55, 0.05);
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 25px;
+    border-left: 4px solid var(--color-gold);
+    padding-left: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Passo de Agendamento */
+.step-container {
+    margin-bottom: 30px;
+}
+
+.step-label {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-gold-light);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.step-number {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--color-gold-gradient);
+    color: #000;
+    font-size: 0.75rem;
+    font-weight: 800;
+}
+
+/* Escolha do Serviço */
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+@media(min-width: 600px) {
+    .services-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .service-item.full-width {
+        grid-column: span 2;
+    }
+}
+
+.service-item {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color-light);
+    border-radius: 12px;
+    padding: 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition-smooth);
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-item:hover {
+    border-color: rgba(212, 175, 55, 0.4);
+    background-color: rgba(212, 175, 55, 0.02);
+    transform: translateY(-2px);
+}
+
+.service-item.selected {
+    border-color: var(--color-gold);
+    background-color: rgba(212, 175, 55, 0.08);
+    box-shadow: var(--shadow-gold);
+}
+
+.service-item.selected::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--color-gold-gradient);
+}
+
+.service-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-right: 10px;
+}
+
+.service-name {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.service-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.service-duration {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.service-price {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-gold);
+}
+
+.service-select-indicator {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth);
+}
+
+.service-item.selected .service-select-indicator {
+    border-color: var(--color-gold);
+    background-color: var(--color-gold);
+}
+
+.service-item.selected .service-select-indicator::after {
+    content: '✓';
+    color: #000;
+    font-size: 0.75rem;
+    font-weight: 900;
+}
+
+/* Campos de entrada comuns */
+.custom-input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.custom-input {
+    width: 100%;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color-light);
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--text-primary);
+    outline: none;
+    transition: var(--transition-smooth);
+}
+
+.custom-input:focus {
+    border-color: var(--color-gold);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.15);
+    background-color: var(--bg-input);
+}
+
+.custom-input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1) sepia(1) saturate(5) hue-rotate(1deg);
+    cursor: pointer;
+}
+
+/* Grade de Horários */
+.time-slots-container {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color-light);
+    border-radius: 12px;
+    padding: 16px;
+    min-height: 100px;
+}
+
+.time-slots-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+@media(max-width: 480px) {
+    .time-slots-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.time-slot {
+    background-color: var(--bg-input);
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 12px 6px;
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    user-select: none;
+}
+
+.time-slot:hover:not(.disabled):not(.selected) {
+    background-color: rgba(212, 175, 55, 0.15);
+    border-color: rgba(212, 175, 55, 0.3);
+    color: var(--color-gold-light);
+}
+
+.time-slot.selected {
+    background: var(--color-gold-gradient);
+    color: #000;
+    font-weight: 700;
+    box-shadow: var(--shadow-gold);
+}
+
+.time-slot.disabled {
+    background-color: rgba(255, 255, 255, 0.03);
+    color: var(--text-muted);
+    text-decoration: line-through;
+    cursor: not-allowed;
+    border-color: rgba(255, 255, 255, 0.02);
+}
+
+.no-date-msg {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    padding: 20px 0;
+}
+
+/* Resumo do Agendamento */
+.summary-container {
+    background-color: var(--bg-card);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 15px;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
+}
+
+.summary-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dashed var(--border-color-light);
+    padding-bottom: 8px;
+}
+
+.summary-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-top: 5px;
+}
+
+.summary-label {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.summary-value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-align: right;
+}
+
+.summary-value.value-highlight {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--color-gold);
+}
+
+/* Botão Confirmar Agendamento */
+.btn-confirm {
+    width: 100%;
+    background: var(--color-gold-gradient);
+    color: #000;
+    border: none;
+    border-radius: 12px;
+    padding: 16px 24px;
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    transition: var(--transition-smooth);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-confirm:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.45);
+    background: linear-gradient(135deg, #f3e5ab 0%, #d4af37 100%);
+}
+
+.btn-confirm:active:not(:disabled) {
+    transform: translateY(1px);
+}
+
+.btn-confirm:disabled {
+    background: var(--bg-input);
+    color: var(--text-muted);
+    cursor: not-allowed;
+    box-shadow: none;
+    border: 1px solid var(--border-color-light);
+}
+
+/* Informações da barbearia */
+.info-desc {
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    font-style: italic;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.info-desc::before {
+    content: '★';
+    color: var(--color-gold);
+    font-size: 1rem;
+}
+
+.address-box {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color-light);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.map-icon {
+    font-size: 1.5rem;
+    color: var(--color-gold);
+}
+
+.address-text {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+.btn-map {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid var(--color-gold);
+    color: var(--color-gold);
+    border-radius: 12px;
+    padding: 14px 20px;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.btn-map:hover {
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--color-gold-light);
+    border-color: var(--color-gold-light);
+}
+
+/* Horários de funcionamento */
+.status-badge {
+    font-size: 0.85rem;
+    font-family: var(--font-body);
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.status-badge.open {
+    background-color: rgba(46, 204, 113, 0.15);
+    color: #2ecc71;
+    border: 1px solid rgba(46, 204, 113, 0.3);
+}
+
+.status-badge.open .pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #2ecc71;
+    animation: pulse 1.8s infinite;
+}
+
+.status-badge.closed {
+    background-color: rgba(231, 76, 60, 0.15);
+    color: #e74c3c;
+    border: 1px solid rgba(231, 76, 60, 0.3);
+}
+
+.status-badge.closed .pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #e74c3c;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 8px rgba(46, 204, 113, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(46, 204, 113, 0);
+    }
+}
+
+.hours-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.hours-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background-color: var(--bg-card);
+    border: 1px solid transparent;
+    transition: var(--transition-smooth);
+}
+
+.hours-item.highlight-today {
+    border-color: rgba(212, 175, 55, 0.4);
+    background-color: rgba(212, 175, 55, 0.05);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.05);
+}
+
+.day-name {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.hours-time {
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.hours-item.highlight-today .day-name {
+    color: var(--color-gold-light);
+    font-weight: 700;
+}
+
+.hours-item.highlight-today .hours-time {
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+/* Rodapé */
+.main-footer {
+    border-top: 1px solid var(--border-color);
+    padding: 40px 20px;
+    text-align: center;
+    background-color: var(--bg-secondary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-brand {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--text-primary);
+    text-transform: uppercase;
+}
+
+.footer-address, .footer-phone {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    max-width: 300px;
+    line-height: 1.5;
+}
+
+.footer-phone a {
+    color: var(--color-gold);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+}
+
+.footer-phone a:hover {
+    color: var(--color-gold-light);
+    text-decoration: underline;
+}
+
+.footer-signature {
+    margin-top: 15px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.footer-signature-brand {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    margin-top: 4px;
+}
+
+/* Notificações flutuantes */
+.toast {
+    position: fixed;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--bg-card);
+    border: 1px solid var(--color-gold);
+    color: var(--text-primary);
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.8), var(--shadow-gold);
+    z-index: 1000;
+    transition: var(--transition-smooth);
+    opacity: 0;
+    white-space: nowrap;
+}
+
+.toast.show {
+    bottom: 30px;
+    opacity: 1;
+}

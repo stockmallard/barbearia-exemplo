@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E.A BARBERSHOP - Agendamento Online</title>
+    <meta name="description" content="Agende seu horário na barbearia E.A BARBERSHOP. Seu estilo começa aqui.">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <!-- Assinatura StockMallard -->
+    <div class="signature-top" id="top-signature">StockMallard</div>
+
+    <!-- Header Principal -->
+    <header class="main-header" id="app-header">
+        <div class="logo-wrapper">
+            <img src="assets/logo.png" alt="Logo E.A BARBERSHOP" class="logo-img" id="logo-main">
+        </div>
+        <h1 class="shop-title" id="shop-title">E.A BARBERSHOP</h1>
+        <p class="shop-tagline" id="shop-tagline">Seu estilo começa aqui.</p>
+    </header>
+
+    <!-- Container do Conteúdo -->
+    <main class="main-container" id="main-content">
+
+        <!-- SEÇÃO: AGENDAMENTO -->
+        <section class="section-card" id="booking-section">
+            <h2 class="section-title" id="booking-section-title">
+                Agende seu horário
+            </h2>
+
+            <form id="booking-form" onsubmit="event.preventDefault();">
+                
+                <!-- PASSO 1: SERVIÇO -->
+                <div class="step-container" id="step-service-container">
+                    <label class="step-label">
+                        <span class="step-number">1</span> Escolha o Serviço
+                    </label>
+                    <div class="services-grid" id="services-grid-list">
+                        <!-- Corte -->
+                        <div class="service-item" data-id="corte" data-name="Corte" data-price="35.00" data-duration="30 min" id="srv-corte">
+                            <div class="service-info">
+                                <span class="service-name">Corte</span>
+                                <div class="service-meta">
+                                    <span class="service-duration">⏱ 30 min</span>
+                                </div>
+                            </div>
+                            <div class="service-price">R$ 35,00</div>
+                            <div class="service-select-indicator"></div>
+                        </div>
+
+                        <!-- Barba -->
+                        <div class="service-item" data-id="barba" data-name="Barba" data-price="25.00" data-duration="25 min" id="srv-barba">
+                            <div class="service-info">
+                                <span class="service-name">Barba</span>
+                                <div class="service-meta">
+                                    <span class="service-duration">⏱ 25 min</span>
+                                </div>
+                            </div>
+                            <div class="service-price">R$ 25,00</div>
+                            <div class="service-select-indicator"></div>
+                        </div>
+
+                        <!-- Corte + Barba -->
+                        <div class="service-item" data-id="corte-barba" data-name="Corte + Barba" data-price="55.00" data-duration="50 min" id="srv-corte-barba">
+                            <div class="service-info">
+                                <span class="service-name">Corte + Barba</span>
+                                <div class="service-meta">
+                                    <span class="service-duration">⏱ 50 min</span>
+                                </div>
+                            </div>
+                            <div class="service-price">R$ 55,00</div>
+                            <div class="service-select-indicator"></div>
+                        </div>
+
+                        <!-- Sobrancelha -->
+                        <div class="service-item" data-id="sobrancelha" data-name="Sobrancelha" data-price="15.00" data-duration="15 min" id="srv-sobrancelha">
+                            <div class="service-info">
+                                <span class="service-name">Sobrancelha</span>
+                                <div class="service-meta">
+                                    <span class="service-duration">⏱ 15 min</span>
+                                </div>
+                            </div>
+                            <div class="service-price">R$ 15,00</div>
+                            <div class="service-select-indicator"></div>
+                        </div>
+
+                        <!-- Acabamento -->
+                        <div class="service-item full-width" data-id="acabamento" data-name="Acabamento" data-price="15.00" data-duration="15 min" id="srv-acabamento">
+                            <div class="service-info">
+                                <span class="service-name">Acabamento</span>
+                                <div class="service-meta">
+                                    <span class="service-duration">⏱ 15 min</span>
+                                </div>
+                            </div>
+                            <div class="service-price">R$ 15,00</div>
+                            <div class="service-select-indicator"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PASSO 2: DATA -->
+                <div class="step-container" id="step-date-container">
+                    <label class="step-label" for="booking-date">
+                        <span class="step-number">2</span> Escolha a Data
+                    </label>
+                    <div class="custom-input-wrapper">
+                        <input type="date" id="booking-date" class="custom-input" required>
+                    </div>
+                </div>
+
+                <!-- PASSO 3: HORÁRIO -->
+                <div class="step-container" id="step-time-container">
+                    <label class="step-label">
+                        <span class="step-number">3</span> Escolha o Horário
+                    </label>
+                    <div class="time-slots-container" id="time-slots-wrapper">
+                        <div id="no-date-message" class="no-date-msg">
+                            Selecione uma data acima para visualizar os horários disponíveis.
+                        </div>
+                        <div class="time-slots-grid" id="time-slots-grid-list" style="display: none;">
+                            <!-- Gerado via JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PASSO 4: NOME DO CLIENTE -->
+                <div class="step-container" id="step-name-container">
+                    <label class="step-label" for="client-name">
+                        <span class="step-number">4</span> Nome do cliente
+                    </label>
+                    <div class="custom-input-wrapper">
+                        <input type="text" id="client-name" class="custom-input" placeholder="Digite seu nome completo" required autocomplete="name">
+                    </div>
+                </div>
+
+                <!-- RESUMO DO AGENDAMENTO -->
+                <div class="summary-container" id="booking-summary" style="display: none;">
+                    <h3 class="step-label" style="color: var(--color-gold); margin-bottom: 15px;">Resumo do Agendamento</h3>
+                    <div class="summary-list">
+                        <div class="summary-item">
+                            <span class="summary-label">Serviço:</span>
+                            <span class="summary-value" id="summary-service">-</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Data:</span>
+                            <span class="summary-value" id="summary-date">-</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Horário:</span>
+                            <span class="summary-value" id="summary-time">-</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Nome:</span>
+                            <span class="summary-value" id="summary-name">-</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Valor:</span>
+                            <span class="summary-value value-highlight" id="summary-value">-</span>
+                        </div>
+                    </div>
+                    
+                    <button type="button" class="btn-confirm" id="btn-confirm-booking" disabled>
+                        <span>Confirmar Agendamento</span>
+                        <span>➔</span>
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- SEÇÃO: INFORMAÇÕES -->
+        <section class="section-card" id="info-section">
+            <h2 class="section-title" id="info-section-title">Informações</h2>
+            <div class="info-desc" id="info-desc">
+                E.A BARBERSHOP — Especialistas em corte masculino, tratamento capilar, prótese capilar, luzes, platinado, etc.
+            </div>
+            
+            <div class="address-box" id="address-box">
+                <div class="map-icon">📍</div>
+                <div class="address-text" id="address-text">
+                    <strong>Endereço:</strong><br>
+                    Rua Humberto Marques, 143 - Cangaiba,<br>
+                    São Paulo - SP, 03725-070, Brasil
+                </div>
+            </div>
+            
+            <button type="button" class="btn-map" id="btn-how-to-get">
+                <span>Como Chegar</span>
+                <span>🗺️</span>
+            </button>
+        </section>
+
+        <!-- SEÇÃO: HORÁRIO DE FUNCIONAMENTO -->
+        <section class="section-card" id="hours-section">
+            <h2 class="section-title" id="hours-section-title">
+                Funcionamento
+                <span class="status-badge closed" id="status-badge">
+                    <span class="pulse-dot"></span>
+                    <span id="status-text">Fechada</span>
+                </span>
+            </h2>
+            
+            <div class="hours-list" id="hours-list">
+                <div class="hours-item" id="hours-dom">
+                    <span class="day-name">Domingo</span>
+                    <span class="hours-time">Fechada</span>
+                </div>
+                <div class="hours-item" id="hours-seg">
+                    <span class="day-name">Segunda-feira</span>
+                    <span class="hours-time">10:00 - 20:00</span>
+                </div>
+                <div class="hours-item" id="hours-ter">
+                    <span class="day-name">Terça-feira</span>
+                    <span class="hours-time">10:00 - 20:00</span>
+                </div>
+                <div class="hours-item" id="hours-qua">
+                    <span class="day-name">Quarta-feira</span>
+                    <span class="hours-time">10:00 - 20:00</span>
+                </div>
+                <div class="hours-item" id="hours-qui">
+                    <span class="day-name">Quinta-feira</span>
+                    <span class="hours-time">10:00 - 20:00</span>
+                </div>
+                <div class="hours-item" id="hours-sex">
+                    <span class="day-name">Sexta-feira</span>
+                    <span class="hours-time">10:00 - 20:00</span>
+                </div>
+                <div class="hours-item" id="hours-sab">
+                    <span class="day-name">Sábado</span>
+                    <span class="hours-time">09:00 - 20:00</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="main-footer" id="app-footer">
+        <div class="footer-brand">E.A BARBERSHOP</div>
+        <div class="footer-address">
+            Rua Humberto Marques, 143 - Cangaiba<br>
+            São Paulo - SP, 03725-070, Brasil
+        </div>
+        <div class="footer-phone">
+            WhatsApp: <a href="https://wa.me/557998248239" target="_blank" rel="noopener noreferrer">+55 79 9824-8239</a>
+        </div>
+        <div class="footer-signature">
+            Desenvolvido por:
+            <div class="footer-signature-brand">StockMallard</div>
+        </div>
+    </footer>
+
+    <!-- Notificação Flutuante (Toast) -->
+    <div class="toast" id="toast-notification"></div>
+
+    <!-- Script de Lógica -->
+    <script src="app.js"></script>
+</body>
+</html>
